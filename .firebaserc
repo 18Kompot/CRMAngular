@@ -1,0 +1,28 @@
+{
+  "targets": {
+    "crm2022-1b317": {
+      "hosting": {
+        "crm": [
+          "crm2022-1b317"
+        ]
+      }
+    },
+    "kompot-f0dc4": {
+      "hosting": {
+        "crm": [
+          "kompot-f0dc4"
+        ]
+      }
+    },
+    "crm2022-b8f10": {
+      "hosting": {
+        "crm": [
+          "crm2022-b8f10"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crm2022-b8f10"
+  }
+}

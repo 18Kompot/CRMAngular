@@ -1,0 +1,48 @@
+<h2>Customers</h2>
+<form
+class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search w-100">
+<div class="input-group">
+    <input (input)="search(searchValue.value)" type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        aria-label="Search" aria-describedby="basic-addon2" #searchValue>
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+        </button>
+    </div>
+</div>
+</form>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Address</th>
+        <th scope="col">Created Date</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customersToShow;  index as i;">
+        <td class="align-middle fw-bold">{{ i+1 }}</td>
+        <td class="align-middle">{{customer.firstName}}</td>
+        <td class="align-middle">{{customer.lastName}}</td>
+        <td class="align-middle">{{customer.email}}</td>
+        <td class="align-middle">{{customer.phoneNumber}}</td>
+        <td class="align-middle">{{customer.address}}</td>
+        <td class="align-middle">{{ customer.createdDate | timeStampToDate }}</td>
+        <td class="align-middle"><div class="input-group-append">
+          <span (click)="remove(customer)" class="input-group-text pointer mr-2">
+            <i class="bi bi-trash"></i>
+          </span>
+          <span (click)="goCustomer(customer.id)" class="input-group-text mr-2 pointer">
+            <i class="bi bi-pencil-square"></i>
+          </span>
+          <span (click)="viewCustomer(customer.id)" class="input-group-text mr-2 pointer">
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </div></td>
+      </tr>
+  </table>

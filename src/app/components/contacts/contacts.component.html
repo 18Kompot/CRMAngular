@@ -1,0 +1,37 @@
+<h2>Contacts</h2>
+<form
+class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search w-100">
+<div class="input-group">
+    <input (input)="search(searchValue.value)" type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        aria-label="Search" aria-describedby="basic-addon2" #searchValue>
+        
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+        </button>
+    </div>
+</div>
+</form>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Phones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contactsToShow;  index as i;">
+        <td class="align-middle fw-bold">{{ i+1 }}</td>
+        <td class="align-middle">{{contact.name}}</td>
+        <td class="align-middle">{{contact.email}}</td>
+        <td class="align-middle">{{contact.birthday | timeStampToDate}}</td>
+        <td class="align-middle">
+            <ul *ngFor="let phoneNumber of contact.phones;">
+                <li>{{ phoneNumber }}</li>
+            </ul>
+        </td>
+      </tr>
+  </table>
